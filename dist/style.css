@@ -1,63 +1,69 @@
 html {
-    background-image: url("https://media.tenor.com/b594CAqpw6MAAAAM/heman-hey.gif");
+  background-image: url("https://media.tenor.com/b594CAqpw6MAAAAM/heman-hey.gif");
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
-    font-family: comic sans ms;
+  font-family: comic sans ms;
 }
 
 header {
-    text-align: center;
-    background-color: hotpink;
-    
+  text-align: center;
+  background-color: hotpink;
+  text-transform: uppercase;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: xx-large;
+  border-radius: 10px;
+
 }
 
 .card {
-    flex-basis: 300px;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    margin: 20px;
-    padding: 20px;
-    width: 300px;
-    display: inline-block;
-    vertical-align: top;
-    background-color: #fff;
-    color: #333;
-  }
-  
-  .card-header {
-    text-align: center;
-  }
-  
-  .card-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .card-header h3 {
-    margin: 5px 0;
-    font-size: 1.2rem;
-    color: #888;
-  }
-  
-  .card-body {
-    margin-top: 20px;
-  }
-  
-  .card-body p {
-    margin: 0;
-    line-height: 1.5;
-  }
-  
-  .card-body p:first-child {
-    font-weight: bold;
-  }
+  flex-basis: 300px;
+  justify-content: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  border-color: hotpink;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #fff;
+  color: #333;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-header h3 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.card-body {
+  margin-top: 20px;
+}
+
+.card-body p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.card-body p:first-child {
+  font-weight: bold;
+}

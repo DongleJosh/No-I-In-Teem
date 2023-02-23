@@ -8,6 +8,8 @@ const Intern = require('./tests/intern.test');
 
 const employees = [];
 
+// initial prompt to ask the manager of the team and get info
+
 function createManager() {
   inquirer.prompt([
     {
@@ -37,7 +39,13 @@ function createManager() {
   });
 }
 
+// run createManager function to initialize prompts
+
 createManager();
+
+
+//create the rest of the team, pick whether engineer or intern and enterinfo
+
 
 function createTeam() {
   inquirer.prompt([
@@ -61,6 +69,8 @@ function createTeam() {
     }
   });
 }
+
+// create engineer profile with unique github question
 
 function createEngineer() {
   inquirer.prompt([
@@ -91,6 +101,8 @@ function createEngineer() {
   });
 }
 
+// create intern profile with unique school question
+
 function createIntern() {
   inquirer.prompt([
     {
@@ -120,37 +132,45 @@ function createIntern() {
   });
 }
 
+//write the HTML of filled answers to index.html
+
 function generateHTML() {
-    let html = `
+  let html = `
       <!DOCTYPE html>
       <html>
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>THE DREEM TEEM</title>
+        <title>No I in TEEM</title>
         <link rel="stylesheet" href="./style.css">
       </head>
       <body>
         <header>
-          <h1>My Team</h1>
+          <h1>🌭 THE DREEM TEEM 🌭</h1>
         </header>
         <main>
       `;
-      
-    for (let i = 0; i < employees.length; i++) {
-      const employee = employees[i];
-      const role = employee.getRole();
-      let info;
+
+// for loop that will add infinite employees
+
+  for (let i = 0; i < employees.length; i++) {
+    const employee = employees[i];
+    const role = employee.getRole();
+    let info;
+
+// different info depending on role
+
+    if (role === 'Manager') {
+      info = `Office Number: ${employee.officeNumber}`;
+    } else if (role === 'Engineer') {
+      info = `GitHub: <a href="https://github.com/${employee.github}">${employee.github}</a>`;
+    } else if (role === 'Intern') {
+      info = `School: ${employee.school}`;
+    }
+
+// cards
   
-      if (role === 'Manager') {
-        info = `Office Number: ${employee.officeNumber}`;
-      } else if (role === 'Engineer') {
-        info = `GitHub: <a href="https://github.com/${employee.github}">${employee.github}</a>`;
-      } else if (role === 'Intern') {
-        info = `School: ${employee.school}`;
-      }
-  
-      html += `
+    html += `
         <div class="card">
           <div class="card-header">
             <h2>${employee.name}</h2>
@@ -163,19 +183,19 @@ function generateHTML() {
           </div>
         </div>
       `;
-    }
-    
-    html += `
+  }
+
+  html += `
         </main>
       </body>
       </html>
     `;
-    
-    fs.writeFile('./dist/index.html', html, (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log('Team HTML file created!');
-        }
-      });
-  }
+
+  fs.writeFile('./dist/index.html', html, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Team HTML file created!');
+    }
+  });
+}
